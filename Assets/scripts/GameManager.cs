@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public Text playerHpBar;
     public Text inputBoxReader;
     public GameObject debugPanel;
+    public bool cardsActive = true;
 
     private void Awake()
     {
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     {
         //Draw function will be called here, or we can reconfigure the button to attach to a different script
         Debug.Log("Card draw triggered");
+        cardUiController.instance.generateNewCard();
     }
     public void playSelectedCard()
     {
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
         //Plays a card according to the ID currently in the ID selector box
         Debug.Log("Card " + cardID.ToString() + " play triggered");
         //Play function will be called here, or we can reconfigure the button to attach to a different script
+        cardUiController.instance.removeCard(cardID);//update hand ui
     }
     public void readAndSetPlayerHP()
     {
@@ -93,7 +96,8 @@ public class GameManager : MonoBehaviour
     }
     public void toggleDebugMenu()
     {
-        debugPanel.SetActive(!debugPanel.activeSelf);
+        debugPanel.SetActive(!debugPanel.activeSelf);//toggle menu
+        cardsActive = !debugPanel.activeSelf;//cards will not play from being clicked while debug menu is active
     }
     // Start is called before the first frame update
     void Start()
