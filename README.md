@@ -4,7 +4,7 @@ This will be a turn-based, roguelike deck builder game in which the player fight
 
 Our goal is to create a fun, challenging game that combines action, battles, abilities, and adventure, all while pushing the boundaries of creativity.
 
-### **Guide: Sigmo Game**
+## **Guide: Sigmo Game**
 
 The game begins by showing the **Sigmo logo** against a dark background, followed by the **main menu**.
 
